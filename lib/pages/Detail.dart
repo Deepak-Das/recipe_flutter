@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_flutter/pages/util/title.dart';
-// import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 
 class Detail extends StatelessWidget {
@@ -22,7 +22,7 @@ class Detail extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // Html(data: data),
+          Html(data: data),
         ],
       ),
     );
