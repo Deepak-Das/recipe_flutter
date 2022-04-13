@@ -23,9 +23,8 @@ class _RecipesScreenState extends State<RecipesScreen> {
   @override
   Widget build(BuildContext context) {
     data = ModalRoute.of(context)?.settings.arguments as Map;
-    list = data['list'];
-    list.forEach((element) {
-      print(element.title);
+    setState(() {
+      list = data['list'];
     });
     return Scaffold(
       appBar: AppBar(

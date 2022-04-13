@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_flutter/Model/RecipeModel.dart';
+import 'package:recipe_flutter/Model/recipeDetail.dart';
+import 'package:recipe_flutter/pages/util/recipeinfo.dart';
 
 class CardView extends StatelessWidget {
   late RecipeModel recipeModel;
+  late RecipeDetail recipeDetail;
 
   CardView({required this.recipeModel});
+
+  void route(int id, BuildContext context) async {
+    await RecipeInfo().getDetail(id).then((value) {
+      recipeDetail = value;
+      print(recipeDetail.title);
+    });
+    await Navigator.pushNamed(context, '/detail',
+        arguments: {'detail': recipeDetail});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +33,9 @@ class CardView extends StatelessWidget {
                 image: NetworkImage(recipeModel.imageUrl),
                 height: 240,
                 fit: BoxFit.cover,
-                child: InkWell(onTap: () {}),
+                child: InkWell(onTap: () {
+                  route(recipeModel.id, context);
+                }),
               ),
               Positioned(
                 bottom: 16,

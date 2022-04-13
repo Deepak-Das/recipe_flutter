@@ -6,7 +6,7 @@ import 'package:recipe_flutter/pages/recipes.dart';
 
 void main() {
   runApp( MaterialApp(
-    initialRoute: "/detail",
+    initialRoute: "/",
     routes: {
       '/' : (context)=> Home(),
       '/recipes' : (context)=>  RecipesScreen(),
